@@ -1,0 +1,475 @@
+/* ==========================================================================
+   1. SYSTÈME DE DESIGN (VARIABLES)
+   ========================================================================== */
+:root {
+    /* Couleurs Principales */
+    --primary-green: #28a745;
+    --primary-dark-green: #2c5e3f;
+    --highlight-yellow: #ffc107;
+    --cta-orange: #f4a460;
+
+    /* Couleurs Neutres */
+    --dark-blue: #1e2b3c;
+    --darkest-blue: #111111;
+    --light-gray: #e8e8e8;
+    --white: #ffffff;
+
+    /* Couleurs de Texte */
+    --text-dark: #333333;
+    --text-light: #f1f1f1;
+    --text-muted: #5a626a; /* L'avez déjà rendu plus foncé, c'est bon */
+
+    /* Couleurs spécifiques pour boutons */
+    --button-card-bg: #4A402D; /* Un marron-vert foncé, terreux */
+    --button-card-bg-hover: #3A3323;
+
+    /* Styles de Base */
+    --border-color: #dee2e6;
+    --font-main: 'Inter', sans-serif;
+    --border-radius: 6px;
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* ==========================================================================
+   2. BASE, RESET & STYLES GLOBAUX
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-main);
+    background-color: var(--white);
+    color: var(--text-dark);
+    line-height: 1.25;
+}
+/* ATTENTION: Cette règle est trop générique. Ciblez plutôt les images spécifiques. */
+/* Supprimée de la version globale, le logo aura sa propre règle */
+/* img {
+    width: 80px;
+    margin-left: 0px;
+} */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Conteneur principal réutilisable pour le contenu (sauf le background full-width) */
+/* C'est CE .container qui donne la largeur max et centre vos sections de contenu */
+.container {
+    max-width: 1300px; /* Largeur maximale cohérente avec le header */
+    margin: 0 auto;    /* Centre le conteneur horizontalement */
+    padding-left: 1.5rem; /* Espacement par défaut sur les côtés */
+    padding-right: 1.5rem;
+}
+
+/* ==========================================================================
+   3. PRÉ-CHARGEUR & ANIMATIONS
+   ========================================================================== */
+#preloader {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: var(--primary-dark-green);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.75s ease, visibility 0.75s ease;
+}
+
+#preloader img {
+    max-width: 120px;
+    animation: pulse 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Version unique et corrigée de l'animation fade-in-up */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px); /* L'état initial un peu plus bas */
+    animation: fade-in-up 0.8s ease-out forwards; /* Animation plus rapide et douce */
+}
+
+@keyframes fade-in-up {
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Retour à la position normale */
+    }
+}
+
+/* Délais pour l'effet de cascade (inchangés, c'est une bonne idée) */
+.hero { animation-delay: 0.3s; }
+.search-section { animation-delay: 0.5s; }
+.features-section .card:nth-child(1) { animation-delay: 0.7s; }
+.features-section .card:nth-child(2) { animation-delay: 0.8s; }
+.features-section .card:nth-child(3) { animation-delay: 0.9s; }
+.cta-banner { animation-delay: 1.0s; } /* Si vous avez un cta-banner */
+footer { animation-delay: 1.2s; }
+
+
+/* ==========================================================================
+   4. COMPOSANTS (Header, Hero, Boutons, Cartes...)
+   ========================================================================== */
+
+/* ---- HEADER ---- */
+.site-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0.8rem 1.5rem;
+}
+
+.logo-group {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img { /* Style spécifique pour l'image du logo */
+    width: 70px;
+    height: auto;
+    margin-right: 3rem;
+}
+
+.logo-text {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--primary-green);
+    font-weight: 700;
+}
+.logo-text span { color: var(--text-dark); font-weight: 400; }
+.logo-text i { color: var(--primary-green); }
+
+
+/* Navigation principale */
+.main-nav { display: flex; gap: 1.5rem; }
+.main-nav a {
+    color: var(--text-dark);
+    font-weight: 500;
+    padding-bottom: 5px;
+    border-bottom: 3px solid transparent;
+    transition: color 0.3s, border-bottom-color 0.3s;
+}
+.main-nav a.active, .main-nav a:hover {
+    color: var(--primary-green);
+    border-bottom-color: var(--primary-green);
+}
+
+/* Actions de l'en-tête (recherche + connexion) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* --- SECTION DE RECHERCHE AMÉLIORÉE --- */
+.search-form-wrapper {
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+}
+
+.search-form-wrapper:focus-within {
+    outline: 2px solid var(--primary-green);
+    outline-offset: 1px;
+    border-color: transparent;
+}
+
+.search-form {
+    display: flex;
+    flex-grow: 1;
+}
+
+.search-form input {
+    padding: 0.6rem;
+    border: none;
+    border-radius: 0;
+    flex-grow: 1;
+    outline: none;
+}
+
+.search-form button {
+    background: var(--primary-green);
+    color: var(--white);
+    border: none;
+    padding: 0 1rem;
+    cursor: pointer;
+    border-radius: 0;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-out;
+}
+
+.search-form button:hover {
+    background-color: #218c3a;
+}
+
+.search-form button:active {
+    transform: translateY(1px);
+}
+/* --- FIN SECTION DE RECHERCHE AMÉLIORÉE --- */
+
+/* Bouton de connexion amélioré pour avoir une forme de bouton */
+.btn-login {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    color: var(--primary-green);
+    border: 2px solid var(--primary-green); /* Bordure verte */
+    padding: 0.4rem 1rem; /* Padding pour donner la forme de bouton */
+    border-radius: 50px; /* Coins arrondis comme les autres boutons */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out, transform 0.1s ease-out;
+}
+.btn-login:hover {
+    background-color: var(--primary-green);
+    color: var(--white);
+    transform: translateY(-1px); /* Légère élévation au survol */
+}
+.btn-login:active {
+    transform: translateY(1px);
+}
+
+
+/* ---- HERO SECTION ---- */
+.hero {
+    position: relative;
+    background-image: url('co.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    text-align: center;
+    /* Paddings réduits pour compacter le hero */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    min-height: 400px; /* Hauteur minimale pour les écrans très petits */
+    display: flex; /* Active flexbox pour le centrage vertical */
+    align-items: center; /* Centre le contenu verticalement */
+    justify-content: center; /* Centre le contenu horizontalement */
+}
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 50, 20, 0.7);
+    z-index: 1;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%; /* Important pour que le .container interne soit centré */
+    /* Pas de padding-left/right ici, le .container interne le gère */
+}
+.badge {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.2rem 0.8rem; /* Padding réduit */
+    border-radius: 50px;
+    font-size: 0.9rem; /* Taille de police réduite */
+    margin-bottom: 2rem; /* Marge réduite */
+}
+.hero h1 {
+    font-size: 3rem; /* Taille du titre réduite */
+    line-height: 1.2; /* Hauteur de ligne ajustée */
+    margin: 0 0 0.8rem 0; /* Marge après le titre */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+	margin-bottom: 10px;
+}
+.highlight { color: var(--highlight-yellow); }
+.light { color: var(--cta-orange); }
+.subtitle {
+    font-size: 1.1rem; /* Taille du sous-titre réduite */
+    max-width: 800px; /* Largeur maximale réduite pour compacter */
+    margin: 0 auto 1.5rem auto; /* Marge inférieure réduite */
+    opacity: 0.9;
+}
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem; /* Espace entre les boutons réduit */
+}
+
+
+/* ---- BOUTONS GÉNÉRIQUES ---- */
+.btn {
+    display: inline-block;
+    padding: 0.4rem 1.6rem; /* Padding unifié */
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 50px;
+    margin: 0; /* Réinitialiser les marges globales si elles posent problème */
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.2s ease-out, color 0.2s ease-out;
+}
+.btn:active { transform: translateY(2px); box-shadow: none; }
+.btn-primary {
+    background-color: var(--primary-green);
+    color: var(--white);
+    border-color: var(--primary-green); /* Assurer que la bordure est de la même couleur que le fond */
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2); /* Box-shadow sur le bouton lui-même */
+    /* -webkit-box-shadow: inset 0 4px 15px rgba(40, 167, 69, 0.2); - Supprimé, pas nécessaire */
+}
+.btn-primary:hover {
+    background-color: #218c3a;
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(40, 167, 69, 0.3);
+}
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-green);
+    border-color: var(--white); /* Couleur de bordure pour le hero, si sur fond clair #ccc est bien */
+}
+.hero .btn-secondary { /* Spécifique pour le hero */
+    border-color: var(--white);
+    color: var(--white);
+}
+.hero .btn-secondary:hover { /* Spécifique pour le hero */
+    background-color: rgba(255, 255, 255, 0.2); /* Légèrement transparent blanc */
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.btn-card {
+    background-color: var(--button-card-bg); /* Utilisation de la variable */
+    color: var(--white);
+    border-color: var(--button-card-bg); /* Cohérence */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Ombre plus neutre pour les cartes */
+}
+.btn-card:hover {
+    background: var(--button-card-bg-hover); /* Utilisation de la variable */
+    border-color: var(--button-card-bg-hover);
+    transform: translateY(-3px);
+}
+.btn-cta {
+    background: var(--cta-orange);
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    border-color: var(--cta-orange); /* Cohérence */
+    box-shadow: 0 4px 20px rgba(255, 107, 0, 0.3);
+}
+.btn-cta:hover {
+    background-color: #ff8c00;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 107, 0, 0.4);
+}
+.b {
+	font-size: 20px;
+}
+
+
+/* ---- SECTION FEATURES / CARTES ---- */
+.features-section {
+    background: #f9f9f7;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+.features-grid {
+    display: grid;
+    /* MODIFICATION CLÉ : Changer 'auto-fill' par 'auto-fit' */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    /* SUPPRIMER 'justify-content: center;' car 'auto-fit' va gérer l'expansion */
+    /* justify-content: center; */
+}
+.card {
+    background: var(--white);
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* ... le reste de votre CSS ... */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+.card .icon {
+    font-size: 2.2rem; /* Taille des icônes réduite */
+    margin-bottom: 0.8rem; /* Marge réduite */
+    color: var(--primary-green);
+}
+.card h3 { margin: 0 0 0.4rem 0; }
+.card p {
+    flex-grow: 1; /* Permet au paragraphe de prendre l'espace disponible */
+    margin-top: 0;
+    margin-bottom: 1.5rem; /* Marge inférieure réduite */
+    color: var(--text-muted);
+    font-size: 0.95rem; /* Taille de police légèrement réduite */
+}
+.card .p-btn { /* Conteneur des boutons de carte */
+    margin-top: auto; /* Pousse le bouton vers le bas dans le flex column */
+}
+
+
+/* ---- CTA & FOOTER ---- */
+.cta-section { background: var(--dark-blue); color: var(--text-light); text-align: center; padding: 4rem 0; }
+.cta-section h2 { max-width: 600px; margin: 0 auto 1.5rem auto; }
+.site-footer { background: var(--darkest-blue); color: #a0a0a0; text-align: center; padding: 3rem 0; }
+.footer-links { margin-bottom: 1rem; display: flex; justify-content: center; gap: 1.5rem; }
+
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 1024px) {
+    .main-nav, .header-actions { display: none; } /* Pour un menu hamburger futur */
+    .hero h1 { font-size: 2rem; }
+    .subtitle { font-size: 1rem; }
+    .hero-buttons { flex-direction: column; align-items: center; } /* Empile les boutons du hero */
+}
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem; /* Moins de padding sur les très petits écrans */
+        padding-right: 1rem;
+    }
+    .hero {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        min-height: 350px;
+    }
+    .hero h1 { font-size: 1.8rem; }
+    .features-section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    .features-grid { grid-template-columns: 1fr; }
+    .card { padding: 1.2rem; }
+}
+
+/* Ajoutez un media query pour les très grands écrans si nécessaire, au-dessus de 1300px */
+/* @media (min-width: 1300px) {
+    .header-container, .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+} */

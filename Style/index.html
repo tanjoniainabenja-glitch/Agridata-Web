@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriData Madagascar — Données sur l’agriculture et l’élevage</title>
+  <meta name="description" content="Données officielles sur l’agriculture et l’élevage à Madagascar : catalogue, cartes interactives, statistiques et API.">
+
+  <!-- Perf: preconnect fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Polices & Icônes -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet" referrerpolicy="no-referrer">
+
+  <link rel="stylesheet" href="style.css">
+	<meta name="description" content="Données officielles sur l’agriculture et l’élevage à Madagascar : catalogue, cartes interactives, statistiques et API."> <link rel="canonical" href="https://YOUR_DOMAIN/"><!-- Open Graph --><meta property="og:locale" content="fr_FR"> <meta property="og:site_name" content="AgriData Madagascar"> <meta property="og:type" content="website"> <meta property="og:url" content="https://YOUR_DOMAIN/"> <meta property="og:title" content="Données sur l’agriculture et l’élevage à Madagascar — en accès direct"> <meta property="og:description" content="Explorez, visualisez et analysez les cultures, rendements et le cheptel pour des décisions agricoles éclairées."> <meta property="og:image" content="https://YOUR_DOMAIN/static/og/og-home.jpg"> <meta property="og:image:width" content="1200"> <meta property="og:image:height" content="630"> <meta property="og:image:alt" content="Aperçu des données agricoles et d’élevage à Madagascar"> <!-- Si multilingue --> <meta property="og:locale:alternate" content="mg_MG"> <meta property="og:locale:alternate" content="en_US"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"> <meta name="twitter:site" content="@VotreCompteTwitter"> <!-- optionnel --> <meta name="twitter:title" content="Données sur l’agriculture et l’élevage à Madagascar — en accès direct"> <meta name="twitter:description" content="Explorez, visualisez et analysez les cultures, rendements et le cheptel."> <meta name="twitter:image" content="https://YOUR_DOMAIN/static/og/og-home.jpg"><!-- Favicons / PWA (recommandé) --><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"> <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"> <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> <link rel="manifest" href="/site.webmanifest"> <meta name="theme-color" content="#2c5e3f"><!-- Hreflang (si vous avez des versions traduites) --><link rel="alternate" href="https://YOUR_DOMAIN/" hreflang="fr"> <link rel="alternate" href="https://YOUR_DOMAIN/mg/" hreflang="mg"> <link rel="alternate" href="https://YOUR_DOMAIN/en/" hreflang="en"> <link rel="alternate" href="https://YOUR_DOMAIN/" hreflang="x-default"><!-- JSON‑LD Organization --><script type="application/ld+json"> { "@context": "https://schema.org", "@type": "Organization", "name": "AgriData Madagascar", "url": "https://YOUR_DOMAIN/", "logo": "https://YOUR_DOMAIN/logo.png", "sameAs": [ "https://www.facebook.com/VOTRE_PAGE", "https://twitter.com/VOTRE_COMPTE", "https://www.linkedin.com/company/VOTRE_PAGE" ], "contactPoint": [{ "@type": "ContactPoint", "contactType": "support", "email": "support@YOUR_DOMAIN", "url": "https://YOUR_DOMAIN/Client/Contact/", "availableLanguage": ["fr", "mg", "en"] }] } </script><!-- JSON‑LD WebSite + SearchAction (pour la recherche interne) --><script type="application/ld+json"> { "@context": "https://schema.org", "@type": "WebSite", "name": "AgriData Madagascar", "url": "https://YOUR_DOMAIN/", "potentialAction": { "@type": "SearchAction", "target": "https://YOUR_DOMAIN/backphp/index.php?q={search_term_string}", "query-input": "required name=search_term_string" } } </script>
+</head>
+<body>
+
+  <!-- Lien d’évitement -->
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header fade-in-up">
+    <div class="header-container">
+      <div class="logo-group">
+        <a href="index.html" class="logo-text" aria-label="Accueil AgriData Madagascar">
+          <img src="logo.png" alt="" class="logo-img" />
+          <i class="fa-solid fa-leaf" aria-hidden="true"></i>
+          <strong>AgriData</strong>
+          <span>Madagascar</span>
+        </a>
+      </div>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="index.html" class="active" aria-current="page">Accueil</a>
+        <a href="backphp/index.php">Données</a>
+        <a href="Maps/index.php">Cartes</a>
+        <a href="Client/Api/index.html">API</a>
+        <a href="Client/Contact/index.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search-form-wrapper" role="search">
+          <form class="search-form" method="get" action="backphp/index.php" autocomplete="off">
+            <label class="sr-only" for="q">Rechercher un jeu de données</label>
+            <input id="q" name="q" type="search"
+                   placeholder="Rechercher un jeu de données, une culture, une région…">
+            <button type="submit" aria-label="Rechercher">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+        <a href="Login/index.php" class="btn-login">
+          <i class="fa-solid fa-user" aria-hidden="true"></i>
+          Se connecter
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <!-- HERO -->
+    <section class="hero fade-in-up" aria-labelledby="hero-title">
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <a href="Client/Source/index.html" class="badge animate-on-scroll">
+          <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+          Sources officielles
+        </a>
+
+        <h1 id="hero-title" class="animate-on-scroll"> Données sur l’agriculture et l’élevage à <span class="highlight">Madagascar</span> — </h1>
+        <h1 class="animate-on-scroll"> <span class="light">en accès direct</span> </h1>
+<p class="subtitle animate-on-scroll">
+        Explorez, visualisez et analysez les informations sur les cultures, les rendements et le cheptel pour des décisions agricoles éclairées.
+      </p>
+
+        <div class="hero-buttons">
+          <a href="Client/Dashboard/index.html" class="btn btn-primary">Explorer les données</a>
+          <a href="Maps/index.php" class="btn btn-secondary">Cartes interactives</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section fade-in-up" aria-labelledby="features-title">
+      <div class="container">
+        <h2 id="features-title" class="sr-only">Fonctionnalités principales</h2>
+        <div class="features-grid">
+          <div class="card animate-on-scroll">
+            <div class="icon"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i></div>
+            <h3>Carte interactive</h3>
+            <p>Visualisez les données de production par région, district ou commune.</p>
+            <p class="p-btn"><a href="Maps/index.php" class="btn btn-card">Explorer par région</a></p>
+          </div>
+
+          <div class="card animate-on-scroll">
+            <div class="icon"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i></div>
+            <h3>Statistiques clés</h3>
+            <p>Accédez aux tableaux de bord et aux tendances des principales filières.</p>
+            <p class="p-btn"><a href="Client/Dashboard/index.html" class="btn btn-card">Données mises à jour</a></p>
+          </div>
+
+          <div class="card animate-on-scroll">
+            <div class="icon"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></div>
+            <h3>Accès développeurs</h3>
+            <p>Intégrez nos données grâce à notre API publique.</p>
+            <p class="p-btn"><a href="Client/Api/index.html" class="btn btn-card">Consulter l’API</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer fade-in-up">
+    <div class="container">
+      <nav class="footer-links" aria-label="Liens de bas de page">
+        <a href="Client/Apropos/index.html">À propos</a>
+        <a href="Client/Source/index.html">Sources</a>
+        <a href="Client/Contact/index.html">Contact</a>
+        <a href="Client/Droit/index.html">Mentions légales</a>
+      </nav>
+      <p>&copy; 2025 AgriData Madagascar. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

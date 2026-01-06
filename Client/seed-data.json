@@ -1,0 +1,121 @@
+[
+  {
+    "_id": { "$oid": "689dfc8da4f19b6c01042801" },
+    "nom": "Pommes de terre",
+    "description": "Tubercules riches en amidon",
+    "image_url": "http://10.0.2.2/Agridata/image/CIMG0745.JPG",
+    "favori": false
+  },
+  {
+    "_id": { "$oid": "689dfc8da4f19b6c01042802" },
+    "nom": "Carottes fraîches",
+    "description": "Légumes riches en bêta-carotène",
+    "image_url": "http://10.0.2.2/Agridata/image/CIMG0748.JPG",
+    "favori": false
+  },
+  {
+    "_id": { "$oid": "689dfc8da4f19b6c01042803" },
+    "nom": "Tomates rouges",
+    "description": "Parfaites pour sauces et salades",
+    "image_url": "http://10.0.2.2/Agridata/image/CIMG0749.JPG",
+    "favori": false
+  },
+  {
+    "_id": { "$oid": "689dfc8da4f19b6c01042804" },
+    "nom": "Concombres",
+    "description": "Légume hydratant, idéal en été",
+    "image_url": "http://10.0.2.2/Agridata/image/CIMG0751.JPG",
+    "favori": false
+  },
+  {
+    "_id": { "$oid": "689dfc8da4f19b6c01042805" },
+    "nom": "Choux",
+    "description": "Légume-feuille riche en fibres",
+    "image_url": "http://10.0.2.2/Agridata/image/CIMG0753.JPG",
+    "favori": false
+  },
+  {
+    "_id": { "$oid": "689dfc8da4f19b6c01042806" },
+    "nom": "Patates douces violettes",
+    "description": "Sucrées, riches en antioxydants",
+    "image_url": "http://10.0.2.2/Agridata/image/CIMG0755.JPG",
+    "favori": false
+  },
+  {
+    "_id": { "$oid": "689dfc8da4f19b6c01042807" },
+    "nom": "Goyaves",
+    "description": "Fruits tropicaux riches en vitamine C",
+    "image_url": "http://10.0.2.2/Agridata/image/CIMG0756.JPG",
+    "favori": false
+  },
+  {
+    "_id": { "$oid": "689dfc8da4f19b6c01042808" },
+    "nom": "Courges",
+    "description": "Fruits du potager à chair tendre",
+    "image_url": "http://10.0.2.2/Agridata/image/CIMG0758.JPG",
+    "favori": false
+  },
+  {
+    "_id": { "$oid": "689dfc8da4f19b6c01042809" },
+    "nom": "Pommes de terre rouges",
+    "description": "Variété de pommes de terre locale",
+    "image_url": "http://10.0.2.2/Agridata/image/CIMG0761.JPG",
+    "favori": false
+  },
+  {
+    "_id": { "$oid": "689dfc8da4f19b6c01042810" },
+    "nom": "Pommes de montagne",
+    "description": "Pommes bio cultivées en altitude",
+    "image_url": "http://10.0.2.2/Agridata/image/CIMG0775.JPG",
+    "favori": false
+  },
+  {
+    "_id": { "$oid": "689dfc8da4f19b6c01042811" },
+    "nom": "Oranges",
+    "description": "Fruits juteux riches en vitamine C",
+    "image_url": "http://10.0.2.2/Agridata/image/CIMG0777.JPG",
+    "favori": false
+  },
+  {
+    "_id": { "$oid": "689dfc8da4f19b6c01042812" },
+    "nom": "Petites oranges (mandarines)",
+    "description": "Douces et faciles à éplucher",
+    "image_url": "http://10.0.2.2/Agridata/image/CIMG0778.JPG",
+    "favori": false
+  },
+  {
+    "_id": { "$oid": "689dfc8da4f19b6c01042813" },
+    "nom": "Pastèques",
+    "description": "Fruits frais à forte teneur en eau",
+    "image_url": "http://10.0.2.2/Agridata/image/CIMG0779.JPG",
+    "favori": false
+  },
+  {
+    "_id": { "$oid": "689dfc8da4f19b6c01042814" },
+    "nom": "Pois",
+    "description": "Légumineuse riche en protéines végétales",
+    "image_url": "http://10.0.2.2/Agridata/image/CIMG0780.JPG",
+    "favori": false
+  },
+  {
+    "_id": { "$oid": "689dfc8da4f19b6c01042815" },
+    "nom": "Haricots",
+    "description": "Secs ou frais, riches en fibres",
+    "image_url": "http://10.0.2.2/Agridata/image/CIMG0781.JPG",
+    "favori": false
+  },
+  {
+    "_id": { "$oid": "689dfc8da4f19b6c01042816" },
+    "nom": "Maïs grain jaune",
+    "description": "Sources d'amidon et céréales locales",
+    "image_url": "http://10.0.2.2/Agridata/image/CIMG0785.JPG",
+    "favori": false
+  },
+  {
+    "_id": { "$oid": "689dfc8da4f19b6c01042817" },
+    "nom": "Riz décortiqué",
+    "description": "Riz blanc prêt à consommer",
+    "image_url": "http://10.0.2.2/Agridata/image/CIMG0787.JPG",
+    "favori": false
+  }
+]

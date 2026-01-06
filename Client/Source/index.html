@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriData Madagascar - Sources officielles</title>
+    
+    <!-- Polices & Icônes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header fade-in-up">
+        <div class="container">
+            <img src="logo.png" alt="Logo AgriData Mada" class="logo">
+            <a href="../../index.html" class="logo">
+                <i class="fa-solid fa-leaf"></i>
+                <strong>MinAE&nbsp;</strong>
+                <span>Madagascar</span>
+            </a>
+            <nav class="main-nav">
+                <a href="../../index.html">Accueil</a>
+                <a href="../Search/index.html">Données</a>
+                <a href="../Carte/index.html">Cartes</a>
+                <a href="../Api/index.html">API</a>
+                <a href="../Contact/index.html">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <form class="search-form" action="../Search/index.html">
+                    <input type="search" placeholder="Rechercher une source ou un jeu de données">
+                    <button type="submit" aria-label="Rechercher"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <a href="../../Login/index.php" class="btn btn-login"><i class="fa-solid fa-user"></i> Connexion</a>
+            </div>
+        </div>
+    </header>
+    
+    <div id="preloader"> </div> 
+
+    <main class="fade-in-up">
+        <section class="hero light">
+            <div class="container">
+                <p class="badge"><i class="fa-solid fa-shield"></i> Sources officielles</p>
+                <h1>Provenance des données</h1>
+                <p class="subtitle">Enquêtes agricoles nationales, systèmes d'information régionaux et télédétection. Retrouvez ci-dessous la liste des jeux publiés et leur fréquence de mise à jour.</p>
+            </div>
+        </section>
+
+        <section class="sources-list">
+            <div class="container">
+                <div class="card">
+                    <h3><i class="fa-solid fa-clipboard-list"></i> Enquête agricole annuelle (EAA)</h3>
+                    <ul>
+                        <li>Variables : superficies, production, rendements par culture principale.</li>
+                        <li>Périmètre : régions, districts, communes.</li>
+                        <li>Fréquence : annuelle (campagnes 2021-2024 disponibles).</li>
+                        <li>Référence : Direction des Statistiques Agricoles (DSA).</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-cow"></i> Statistiques élevage</h3>
+                    <ul>
+                        <li>Variables : cheptel bovin, caprin, ovin, avicole.</li>
+                        <li>Périmètre : régions et districts.</li>
+                        <li>Fréquence : annuelle, mises à jour 2023-2024.</li>
+                        <li>Référence : Direction de l'Élevage.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-satellite"></i> Estimations télédétection</h3>
+                    <ul>
+                        <li>Variables : superficies rizicoles, NDVI, humidité du sol.</li>
+                        <li>Périmètre : polygones rizicoles et régions prioritaires.</li>
+                        <li>Fréquence : saisonnière (campagnes A, B, C).</li>
+                        <li>Référence : Cellule SIG/RS Ministère + partenaires techniques.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-warehouse"></i> Stocks et marchés</h3>
+                    <ul>
+                        <li>Variables : prix moyens hebdomadaires, stocks stratégiques.</li>
+                        <li>Périmètre : marchés de référence par région.</li>
+                        <li>Fréquence : hebdomadaire / mensuelle.</li>
+                        <li>Référence : Observatoire des Marchés Agricoles.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="downloads">
+            <div class="container">
+                <div class="table-header">
+                    <h3>&nbsp;Jeux de données publiés</h3>
+                    <a class="btn btn-secondary" href="../Api/index.html"><i class="fa-solid fa-code"></i> Accès API</a>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Thème</th>
+                                <th>Couverture</th>
+                                <th>Mise à jour</th>
+                                <th>Format</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Production riz 2021-2024</td>
+                                <td>Cultures</td>
+                                <td>Région, District</td>
+                                <td>Annuelle</td>
+                                <td>CSV, JSON</td>
+                            </tr>
+                            <tr>
+                                <td>Cheptel bovin 2023-2024</td>
+                                <td>Élevage</td>
+                                <td>Région</td>
+                                <td>Annuelle</td>
+                                <td>CSV, JSON</td>
+                            </tr>
+                            <tr>
+                                <td>Prix marché maïs (hebdo)</td>
+                                <td>Marchés</td>
+                                <td>Réseau marchés régionaux</td>
+                                <td>Hebdomadaire</td>
+                                <td>CSV</td>
+                            </tr>
+                            <tr>
+                                <td>Rizicultures télédétection</td>
+                                <td>Télédétection</td>
+                                <td>Polygones rizicoles</td>
+                                <td>Saisonnier</td>
+                                <td>GeoJSON</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-card">
+            <div class="container">
+                <div class="card">
+                    <h3><i class="fa-solid fa-envelope"></i> Besoin d'une méthodologie détaillée ?</h3>
+                    <p>Contactez la DSA pour obtenir les métadonnées complètes, questionnaires d'enquête, dictionnaires de variables et notes méthodologiques.</p>
+                    <div class="hero-buttons">
+                        <a class="btn btn-primary" href="../Contact/index.html">Écrire à la DSA</a>
+                        <a class="btn btn-secondary" href="../Api/index.html">Voir la documentation API</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer fade-in-up">
+        <div class="container">
+            <nav class="footer-links">
+                <a href="../Apropos/index.html">À propos</a>
+                <a href="index.html">Sources des données</a>
+                <a href="../Contact/index.html">Contact</a>
+                <a href="../Droit/index.html">Mentions légales</a>
+            </nav>
+            <p>&copy; 2025 AgriData Mada. Tous droits réservés.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

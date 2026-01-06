@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #F7FBF7; /* fond très clair, presque blanc */
+}
+
+.wrapper {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    background: linear-gradient(90deg, #DFF0D8, #F7FBF7); /* vert très clair vers blanc */
+    border-radius: 50px;
+    box-shadow: 0 0 30px rgba(139, 195, 74, 0.15); /* ombre verte très légère */
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.wrapper .text-right {
+    position: absolute;
+    top: 70px;
+    right: 27px;
+    color: #2E3A2E; /* gris foncé doux */
+    font-size: 25px;
+    user-select: none;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    text-shadow: none;
+    visibility: visible;
+}
+
+.highlighted {
+    color: #4CAF50; /* ou toute autre couleur que tu veux */
+    font-size: 22px; 
+}
+
+.wrapper .text-right::before {
+    content: "";
+    position: absolute;
+    top: 220px;
+    right: -120px;
+    color: #4CAF50;
+    white-space: pre-line; /* Nécessaire pour que \A fonctionne */
+}
+
+.wrapper logo {
+    position: absolute;
+    right: 59px;
+    bottom: 110px;
+    width: 23px;
+    transform: rotate(0deg);
+    opacity: 0.85; /* image très discrète */
+    height: 19px;
+    visibility: visible;
+}
+
+.form-wrapper {
+    z-index: 2;
+}
+
+.wrapper .form-wrapper.login {
+    transition: .7s ease-in-out;
+    transition-delay: .7s;
+}
+
+.wrapper.active .form-wrapper.login {
+    transition-delay: 0s;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-wrapper.register {
+    position: absolute;
+    margin-top: 15px;
+    transform: translateX(-400px);
+    transition: .7s ease-in-out;
+}
+
+.wrapper.active .form-wrapper.register {
+    transition-delay: .7s;
+    transform: translateX(0);
+}
+
+h2 {
+    font-size: 2em;
+    text-align: center;
+    color: #2E3A2E; /* gris foncé */
+}
+
+.input-box {
+    position: relative;
+    width: 320px;
+    margin: 30px 0;
+}
+
+.input-box input,
+.input-box select {
+    width: 100%;
+    height: 50px;
+    background: #FFFFFF; /* fond blanc */
+    border: 2px solid #8BC34A; /* vert clair */
+    outline: none;
+    border-radius: 40px;
+    font-size: 1em;
+    color: #2E3A2E; /* texte gris foncé */
+    padding: 0 20px 0 40px;
+    transition: border-color 0.3s ease;
+}
+
+.input-box input::placeholder {
+    color: rgba(46, 58, 46, 0.5);
+}
+
+.input-box input:focus,
+.input-box select:focus {
+    border-color: #7CB342; /* vert un peu plus foncé au focus */
+}
+
+.input-box .icon {
+    position: absolute;
+    left: 15px;
+    color: #8BC34A; /* vert clair */
+    font-size: 1.2em;
+    line-height: 55px;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px 45px 12px 15px; /* Ajouter de l’espace à droite pour l’icône (45px) */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* Image de l'œil : plus petite */
+.eye-icon {
+    width: 20px;
+    height: auto;
+    position: absolute;
+    right: 20px;
+    top: 24px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.eye-icon:hover {
+    transform: scale(1.1);
+    filter: brightness(0.8);
+}
+
+/* Logo : plus grand */
+img[alt="logo"] {
+    width: 200px;
+    height: auto;
+}
+
+.forgot-pass {
+    margin: -15px 0 15px 15px;
+}
+
+.forgot-pass a {
+    color: #7CB342; /* vert doux */
+    font-size: .9em;
+    text-decoration: none;
+}
+
+.forgot-pass a:hover {
+    text-decoration: underline;
+}
+
+button {
+    width: 100%;
+    height: 45px;
+    background: #8BC34A;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    color: #FFF;
+    transition: background-color .3s ease, transform .2s ease;
+    transform-origin: center;
+}
+
+button:hover {
+    background: #7CB342;
+    transform: scale(1.05);
+}
+
+button:focus-visible {
+    outline: 3px solid #33691E;
+    transform: scale(1.05);
+}
+
+.sign-link {
+    font-size: .9em;
+    text-align: center;
+    margin: 25px 0;
+}
+
+.sign-link p {
+    color: #2E3A2E; /* gris foncé */
+}
+
+.sign-link p a {
+    color: #7CB342; /* vert doux */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.sign-link p a:hover {
+    text-decoration: underline;
+}

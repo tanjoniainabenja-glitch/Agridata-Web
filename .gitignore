@@ -1,0 +1,14 @@
+# XAMPP / PHP
+/vendor/
+.env
+
+# Node (si jamais utilisé)
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store

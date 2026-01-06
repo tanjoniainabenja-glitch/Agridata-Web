@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriData Madagascar - API publique</title>
+    
+    <!-- Polices & Icônes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header fade-in-up">
+        <div class="container">
+            <img src="logo.png" alt="Logo AgriData Mada" class="logo">
+            <a href="../../index.html" class="logo">
+                <i class="fa-solid fa-leaf"></i>
+                <strong>AgriData</strong>
+                <span>Madagascar</span>
+            </a>
+            <nav class="main-nav">
+                <a href="../../index.html">Accueil</a>
+                <a href="../Search/index.html">Données</a>
+                <a href="../Carte/index.html">Cartes</a>
+                <a href="index.html" class="active">API</a>
+                <a href="../Contact/index.html">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <form class="search-form" action="../Search/index.html">
+                    <input type="search" placeholder="Rechercher une donnée">
+                    <button type="submit" aria-label="Rechercher"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <a href="../../Login/index.php" class="btn btn-login"><i class="fa-solid fa-user"></i> Connexion</a>
+            </div>
+        </div>
+    </header>
+    
+    <div id="preloader"> </div> 
+
+    <main class="fade-in-up">
+        <section class="hero light">
+            <div class="container">
+                <p class="badge"><i class="fa-solid fa-code"></i> API publique</p>
+                <h1>Consommer les données AgriData</h1>
+                <p class="subtitle">Accès programmatique aux cultures, rendements, cheptel et séries de prix. Authentification simple par clé.</p>
+                <div class="hero-buttons">
+                    <a class="btn btn-primary" href="#endpoints">Voir les endpoints</a>
+                    <a class="btn btn-secondary" href="../Contact/index.html">Demander une clé</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="api-basics">
+            <div class="container features-grid">
+                <div class="card">
+                    <h3><i class="fa-solid fa-link"></i> Base URL</h3>
+                    <p><code>https://api.agridata.mg/v1</code> (exemple)</p>
+                    <p>Préfixez tous vos appels par cette URL.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-key"></i> Authentification</h3>
+                    <p>En-tête <code>X-API-Key: VOTRE_CLÉ</code> ou paramètre <code>?api_key=...</code></p>
+                    <p>Clé de test : 1 000 requêtes/jour.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-gauge-high"></i> Limites</h3>
+                    <p>100 requêtes/minute par clé. Codes HTTP 429 en cas de dépassement.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="endpoints" class="downloads">
+            <div class="container">
+                <div class="table-header">
+                    <h3>Endpoints principaux</h3>
+                    <a class="btn btn-secondary" href="../Source/index.html"><i class="fa-solid fa-shield-halved"></i> Voir les sources</a>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Endpoint</th>
+                                <th>Paramètres clés</th>
+                                <th>Usage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>GET /datasets</code></td>
+                                <td><code>theme</code>, <code>region</code>, <code>annee</code></td>
+                                <td>Liste les jeux disponibles.</td>
+                            </tr>
+                            <tr>
+                                <td><code>GET /datasets/{id}</code></td>
+                                <td><code>id</code></td>
+                                <td>Détails d'un jeu de données.</td>
+                            </tr>
+                            <tr>
+                                <td><code>GET /stats/production</code></td>
+                                <td><code>culture</code>, <code>annee</code>, <code>region</code></td>
+                                <td>Production et rendements par périmètre.</td>
+                            </tr>
+                            <tr>
+                                <td><code>GET /stats/cheptel</code></td>
+                                <td><code>espece</code>, <code>annee</code>, <code>region</code></td>
+                                <td>Effectifs de cheptel (bovin, caprin, etc.).</td>
+                            </tr>
+                            <tr>
+                                <td><code>GET /geo/rizicultures</code></td>
+                                <td><code>annee</code>, <code>format=geojson</code></td>
+                                <td>Polygones rizicoles (télédétection).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="code-examples">
+            <div class="container">
+                <h3>Exemples d'appel</h3>
+                <div class="features-grid">
+                    <div class="card">
+                        <h4>cURL</h4>
+                        <pre><code>curl -H "X-API-Key: VOTRE_CLÉ" \ \
+  "https://api.agridata.mg/v1/stats/production?culture=
+riz&annee=2024&region=Alaotra-Mangoro"</code></pre>
+                    </div>
+                    <div class="card">
+                        <h4>JavaScript (fetch)</h4>
+                        <pre><code>fetch('https://api.agridata.mg/v1/stats/cheptel?espece=
+bovin&annee=2024', {headers: { 'X-API-Key': 'VOTRE_CLÉ' }})
+.then(r =&gt; r.json()).then(console.log);
+</code></pre>
+                    </div>
+                    <div class="card">
+                        <h4>Réponse type</h4>
+<pre><code>{
+  "region": "Alaotra-Mangoro", "annee": 2024,"culture": "riz",
+  "superficie_ha": 182000,"production_t": 
+820000,"rendement_t_ha": 4.5, "source": "EAA 2024"}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-card">
+            <div class="container">
+                <div class="card">
+                    <h3><i class="fa-solid fa-life-ring"></i> Besoin d'aide API ?</h3>
+                    <p>Clés, quotas, nouvelles variables ou intégration : notre équipe peut vous accompagner.</p>
+                    <div class="hero-buttons">
+                        <a class="btn btn-primary" href="../Contact/index.html">Contacter le support</a>
+                        <a class="btn btn-secondary" href="../Source/index.html">Vérifier les sources</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer fade-in-up">
+        <div class="container">
+            <nav class="footer-links">
+                <a href="../Apropos/index.html">À propos</a>
+                <a href="../Source/index.html">Sources des données</a>
+                <a href="../Contact/index.html">Contact</a>
+                <a href="../Droit/index.html">Mentions légales</a>
+            </nav>
+            <p>&copy; 2025 AgriData Mada. Tous droits réservés.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

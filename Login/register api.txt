@@ -1,0 +1,86 @@
+<?php
+
+require 'vendor/autoload.php';
+use MongoDB\Client;
+
+// Configuration des en-têtes HTTP
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Methods: POST");
+header('Content-Type: application/json');
+
+// Fonction d'envoi de réponse JSON
+function send_json($data, $code = 200) {
+    http_response_code($code);
+    $json = json_encode($data);
+    header("Content-Length: " . strlen($json));
+    echo $json;
+    exit;
+}
+
+// Vérification de la méthode HTTP
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    send_json(["success" => false, "message" => "Méthode HTTP non autorisée."], 405);
+}
+
+// Récupération et décodage des données JSON
+$input = file_get_contents("php://input");
+$data = json_decode($input, true);
+
+if (!is_array($data)) {
+    send_json(["success" => false, "message" => "Format JSON invalide."], 400);
+}
+
+// Vérification des champs requis
+$required_fields = ['prenom', 'nom', 'email', 'password'];
+foreach ($required_fields as $field) {
+    if (empty($data[$field])) {
+        send_json(["success" => false, "message" => "Le champ '$field' est requis."], 400);
+    }
+}
+
+// Connexion à MongoDB
+$client = new Client("mongodb://localhost:27017");
+$collection = $client->mineae->users;
+
+// Préparation des données
+$prenom = trim($data['prenom']);
+$nom = trim($data['nom']);
+$email = trim($data['email']);
+$password = trim($data['password']);
+
+// Validation de l'email
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    send_json(["success" => false, "message" => "Email invalide."], 400);
+}
+
+// Vérifier l'existence de l'email
+if ($collection->findOne(['email' => $email])) {
+    send_json(["success" => false, "message" => "Email déjà utilisé."], 409);
+}
+
+// Formatage des données
+$formattedPrenom = ucfirst(strtolower($prenom));
+$formattedNom = strtoupper($nom);
+$fullname = $formattedPrenom . ' ' . $formattedNom;
+$username = strtolower($prenom) . '.' . strtolower($nom);
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+// Insertion dans MongoDB
+$insertResult = $collection->insertOne([
+    "prenom" => $formattedPrenom,
+    "nom" => $formattedNom,
+    "fullname" => $fullname,
+    "username" => $username,
+    "email" => $email,
+    "password" => $hashedPassword,
+    "created_at" => new MongoDB\BSON\UTCDateTime()
+]);
+
+// Résultat
+if ($insertResult->getInsertedCount() === 1) {
+    send_json(["success" => true, "message" => "Inscription réussie."]);
+} else {
+    send_json(["success" => false, "message" => "Erreur lors de l'enregistrement."], 500);
+}
+?>

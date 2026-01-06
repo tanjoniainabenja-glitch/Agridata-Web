@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriData Madagascar - Explorer les données</title>
+    
+    <!-- Polices & Icônes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header fade-in-up">
+        <div class="container">
+            <img src="logo.png" alt="Logo AgriData Mada" class="logo">
+            <a href="../../index.html" class="logo">
+                <i class="fa-solid fa-leaf"></i>
+                <strong>MinAE&nbsp;</strong>
+                <span>Madagascar</span>
+            </a>
+            <nav class="main-nav">
+                <a href="../../index.html">Accueil</a>
+                <a href="../Search/index.html" class="active">Données</a>
+                <a href="../Carte/index.html">Cartes</a>
+                <a href="../Api/index.html">API</a>
+                <a href="../Contact/index.html">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <form class="search-form" action="../Search/index.html">
+                    <input type="search" placeholder="Rechercher une culture, une région...">
+                    <button type="submit" aria-label="Rechercher"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <a href="../../Login/index.php" class="btn btn-login"><i class="fa-solid fa-user"></i> Connexion</a>
+            </div>
+        </div>
+    </header>
+    
+    <div id="preloader"> </div> 
+
+    <main class="fade-in-up">
+        <section class="hero light">
+            <div class="container">
+                <p class="badge"><i class="fa-solid fa-database"></i> Explorer les données</p>
+                <h1>Tableaux de bord agriculture et élevage</h1>
+                <p class="subtitle">Aperçu rapide des superficies cultivées, rendements et cheptel par région. Données issues des enquêtes officielles du Ministère.</p>
+                <div class="hero-buttons">
+                    <a class="btn btn-primary" href="../Carte/index.html">Voir sur la carte</a>
+                    <a class="btn btn-secondary" href="../Api/index.html">Consommer via l'API</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="metrics-section">
+            <div class="container metrics-grid">
+                <div class="card">
+                    <p class="kpi-label">Superficie céréales (2024)</p>
+                    <p class="kpi-value">1,25 M ha</p>
+                    <p class="kpi-foot">+3,2% vs 2023</p>
+                </div>
+                <div class="card">
+                    <p class="kpi-label">Production riz paddy</p>
+                    <p class="kpi-value">5,4 Mt</p>
+                    <p class="kpi-foot">Rendement moyen 4,3 t/ha</p>
+                </div>
+                <div class="card">
+                    <p class="kpi-label">Cheptel bovin</p>
+                    <p class="kpi-value">9,8 M têtes</p>
+                    <p class="kpi-foot">+1,1% vs 2023</p>
+                </div>
+                <div class="card">
+                    <p class="kpi-label">Districts couverts</p>
+                    <p class="kpi-value">114</p>
+                    <p class="kpi-foot">100% des régions</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="filters-section">
+            <div class="container">
+                <h2>Filtrer un jeu de données</h2>
+                <form class="filters-form">
+                    <label>
+                        Culture
+                        <select>
+                            <option>Riz</option>
+                            <option>Maïs</option>
+                            <option>Manioc</option>
+                            <option>Café</option>
+                        </select>
+                    </label>
+                    <label>
+                        Région
+                        <select>
+                            <option>Analamanga</option>
+                            <option>Vakinankaratra</option>
+                            <option>Alaotra-Mangoro</option>
+                            <option>Atsimo-Andrefana</option>
+                        </select>
+                    </label>
+                    <label>
+                        Année
+                        <select>
+                            <option>2024</option>
+                            <option>2023</option>
+                            <option>2022</option>
+                        </select>
+                    </label>
+                    <button type="button" class="btn btn-primary">Appliquer</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <div class="container">
+                <div class="table-header">
+                    <h3>Exemple : production de riz par région (2024)</h3>
+                    <a class="btn btn-secondary" href="../Api/index.html"><i class="fa-solid fa-code"></i> Exporter via API</a>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Région</th>
+                                <th>Superficie (ha)</th>
+                                <th>Production (t)</th>
+                                <th>Rendement (t/ha)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Alaotra-Mangoro</td>
+                                <td>182 000</td>
+                                <td>820 000</td>
+                                <td>4,5</td>
+                            </tr>
+                            <tr>
+                                <td>Atsinanana</td>
+                                <td>96 500</td>
+                                <td>392 000</td>
+                                <td>4,1</td>
+                            </tr>
+                            <tr>
+                                <td>Vakinankaratra</td>
+                                <td>74 200</td>
+                                <td>330 000</td>
+                                <td>4,4</td>
+                            </tr>
+                            <tr>
+                                <td>Atsimo-Andrefana</td>
+                                <td>51 000</td>
+                                <td>182 000</td>
+                                <td>3,6</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="sources-note">
+            <div class="container">
+                <div class="card">
+                    <p class="badge"><i class="fa-solid fa-shield-halved"></i> Sources officielles</p>
+                    <h3>Enquêtes agricoles, télédétection, statistiques régionales</h3>
+                    <p>Les indicateurs ci-dessus proviennent des campagnes de collecte du Ministère, des directions régionales et d’estimations par télédétection (zones rizicoles). Les valeurs sont des exemples ; utilisez l’API ou la page Sources pour accéder aux séries complètes.</p>
+                    <div class="hero-buttons">
+                        <a class="btn btn-primary" href="../Source/index.html">Voir les sources détaillées</a>
+                        <a class="btn btn-secondary" href="../Carte/index.html">Ouvrir la carte</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer fade-in-up">
+        <div class="container">
+            <nav class="footer-links">
+                <a href="../Apropos/index.html">À propos</a>
+                <a href="../Source/index.html">Sources des données</a>
+                <a href="../Contact/index.html">Contact</a>
+                <a href="../Droit/index.html">Mentions légales</a>
+            </nav>
+            <p>&copy; 2025 AgriData Mada. Tous droits réservés.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

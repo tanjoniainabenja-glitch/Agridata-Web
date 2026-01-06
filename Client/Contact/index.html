@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriData Madagascar - Contact et support</title>
+    
+    <!-- Polices & Icônes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header fade-in-up">
+        <div class="container">
+            <img src="logo.png" alt="Logo AgriData Mada" class="logo">
+            <a href="../../index.html" class="logo">
+                <i class="fa-solid fa-leaf"></i>
+                <strong>AgriData</strong>
+                <span>Madagascar</span>
+            </a>
+            <nav class="main-nav">
+                <a href="../../index.html">Accueil</a>
+                <a href="../Search/index.html">Données</a>
+                <a href="../Carte/index.html">Cartes</a>
+                <a href="../Api/index.html">API</a>
+                <a href="index.html" class="active">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <form class="search-form" action="../Search/index.html">
+                    <input type="search" placeholder="Rechercher par culture, région ou élevage">
+                    <button type="submit" aria-label="Rechercher"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <a href="../../Login/index.php" class="btn btn-login"><i class="fa-solid fa-user"></i> Connexion</a>
+            </div>
+        </div>
+    </header>
+    
+    <div id="preloader"> </div> 
+
+    <main class="fade-in-up">
+        <section class="hero light">
+            <div class="container">
+                <p class="badge"><i class="fa-solid fa-headset"></i> Support AgriData</p>
+                <h1>Contactez l'équipe</h1>
+                <p class="subtitle">Questions sur les données, l'API ou une correction ? Nous sommes à votre disposition.</p>
+                <div class="hero-buttons">
+                    <a class="btn btn-primary" href="mailto:contact@eminae.mg"><i class="fa-solid fa-envelope"></i> contact@eminae.mg</a>
+                    <a class="btn btn-secondary" href="../Api/index.html"><i class="fa-solid fa-code"></i> Aide API</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-grid">
+            <div class="container features-grid">
+                <div class="card">
+                    <h3><i class="fa-solid fa-building"></i> Ministère</h3>
+                    <p>Ministère de l'Agriculture et de l'Élevage<br>Antananarivo, Madagascar</p>
+                    <p><strong>Téléphone :</strong> +261 XX XXX XXXX</p>
+                    <p><strong>Heures :</strong> Lun - Ven, 8h à 17h</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-database"></i> Support données</h3>
+                    <p>Demandes de clarification, corrections, ajouts de séries.</p>
+                    <p><strong>Email :</strong> <a href="mailto:donnees@eminae.mg">donnees@eminae.mg</a></p>
+                    <p><strong>API :</strong> <a href="../Api/index.html">Documentation</a></p>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-shield-halved"></i> Qualité & sources</h3>
+                    <p>Retours sur la méthodologie, métadonnées, et références officielles.</p>
+                    <p><strong>Email :</strong> <a href="mailto:qualite@eminae.mg">qualite@eminae.mg</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="card">
+                    <h2>Envoyer un message</h2>
+                    <p>Indiquez le contexte (jeu de données, région, année) pour accélérer la réponse.</p>
+                    <form action="send_message.php" method="post" class="contact-form">
+                        <div class="input-row">
+                            <input type="text" name="nom" placeholder="Nom complet" required>
+                            <input type="email" name="email" placeholder="Adresse email" required>
+                        </div>
+                        <div class="input-row">
+                            <input type="text" name="sujet" placeholder="Sujet (ex: Production riz 2024)" required>
+                        </div>
+                        <div class="input-row">
+                            <textarea name="message" rows="4" placeholder="Votre message, références de données, besoin API..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
+                    <p class="hint">En cas d'urgence opérationnelle, appelez le numéro principal du Ministère.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-faq">
+            <div class="container">
+                <h3>Questions fréquentes</h3>
+                <div class="features-grid">
+                    <div class="card">
+                        <h4>Comment signaler une erreur de donnée ?</h4>
+                        <p>Précisez le jeu (nom, année), la valeur observée et la valeur attendue. Nous vérifions auprès des directions régionales.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Où obtenir une clé API ?</h4>
+                        <p>Consultez la page API et faites une demande ; une clé de test est fournie pour 1 000 requêtes/jour.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Peut-on partager les données publiquement ?</h4>
+                        <p>Oui, sous réserve de citation de la source Ministère de l'Agriculture et de l'Élevage.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer fade-in-up">
+        <div class="container">
+            <nav class="footer-links">
+                <a href="../Apropos/index.html">À propos</a>
+                <a href="../Source/index.html">Sources des données</a>
+                <a href="index.html">Contact</a>
+                <a href="../Droit/index.html">Mentions légales</a>
+            </nav>
+            <p>&copy; 2025 AgriData Mada. Tous droits réservés.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
